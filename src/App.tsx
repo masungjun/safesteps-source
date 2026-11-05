@@ -40,10 +40,11 @@ type Category = "보행로" | "가로등" | "교통" | "기타"
 type Page = "map" | "news" | "about"
 type Lang = "ko" | "en"
 
-const LANG_KEY = "safesteps-lang"
+const LANG_KEY = "safesteps-ui-lang"
 
 function loadLang(): Lang {
   try {
+    localStorage.removeItem("safesteps-lang")
     return localStorage.getItem(LANG_KEY) === "ko" ? "ko" : "en"
   } catch {
     return "en"
